@@ -18,7 +18,7 @@ body {
 
 }
 
-form {
+.form {
     background-color: dimgray;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ form {
     
 }
 
-form p {
+div.form p {
     padding: .2rem;
     margin: 1rem;
 }
@@ -42,7 +42,33 @@ button {
     background-color: cornflowerblue;
 }
 
-.main {
+.library {
     background-color: cornflowerblue;
     grid-area: 2 / 2 / -1 / -1;
+    display: flex;
+}
+
+.book {
+    margin: 2rem;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 2rem;
+    box-shadow: .5rem .5rem 3rem grey;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-title, .book-author, .book-pages, .book-read {
+    color: black;
+    text-align: center;
+    padding: 2rem;
+}
+
+.book-read {
+    margin: 0rem 4rem 1rem 4rem;
+    border-radius: 2rem;
+    padding: .5rem;
+    background-color: rgb(130, 233, 130);
 }
