@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-//
+//library for book objects to be added to
 let libraryArray = [];
 
 //Info function to return full Book info 
@@ -25,40 +25,47 @@ function addBookInputToLibrary() {
         bookInput[0].value,
         bookInput[1].value,
         bookInput[2].value,
-        bookInput[3].checked);
+        `${bookInput[3].checked ? 'Read' : 'Not Read'}`);
         libraryArray.push(book);
 };
 
-//
-function displayLibrary() {
-    for (let i = 0; i < libraryArray.length; i++) {
-        const book = document.createElement('div');
-        const bookTitle = document.createElement('div');
-        const bookAuthor = document.createElement('div');
-        const bookPages = document.createElement('div');
-        const bookRead = document.createElement('div');
+//Create book div and children divs for info, assign input to info divs, append book div to library
+function updateLibraryDisplay() {
+    const book = document.createElement('div');
+    const bookTitle = document.createElement('div');
+    const bookAuthor = document.createElement('div');
+    const bookPages = document.createElement('div');
+    const bookRead = document.createElement('button');
 
-        book.classList.add('book');
-        bookTitle.classList.add('book-title');
-        bookAuthor.classList.add('book-author');
-        bookPages.classList.add('book-pages');
-        bookRead.classList.add('book-read');
-        
-        bookTitle.textContent = libraryArray[i].title;
-        bookAuthor.textContent = libraryArray[i].author;
-        bookPages.textContent = libraryArray[i].pages;
-        bookRead.textContent = libraryArray[i].read;
-        
-        book.appendChild(bookTitle);
-        book.appendChild(bookAuthor);
-        book.appendChild(bookPages);
-        book.appendChild(bookRead);
-        library.appendChild(book);
-    } 
+    book.classList.add('book');
+    bookTitle.classList.add('book-title');
+    bookAuthor.classList.add('book-author');
+    bookPages.classList.add('book-pages');
+    bookRead.classList.add('book-read');
+    
+    bookTitle.textContent = `Title: ${libraryArray[libraryArray.length - 1].title}`;
+    bookAuthor.textContent = `Author: ${libraryArray[libraryArray.length - 1].author}`;
+    bookPages.textContent = `Pages: ${libraryArray[libraryArray.length - 1].pages}`;
+    bookRead.textContent = libraryArray[libraryArray.length - 1].read;
+    
+    book.appendChild(bookTitle);
+    book.appendChild(bookAuthor);
+    book.appendChild(bookPages);
+    book.appendChild(bookRead);
+    library.appendChild(book);
+}
+
+//clear the inputs
+function resetForm() {
+    bookInput[0].value = '';
+    bookInput[1].value = '';
+    bookInput[2].value = '';
+    bookInput[3].checked = false;
 }
 
 //Event listener to create + add book to library and show the updated library
 submitButton.addEventListener('click', function() {
     addBookInputToLibrary();
-    displayLibrary();
+    updateLibraryDisplay();
+    resetForm();
 });
