@@ -62,12 +62,19 @@ button {
 .book-title, .book-author, .book-pages, .book-read {
     color: black;
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .book-read {
     margin: 0rem 4rem 1rem 4rem;
     border-radius: 2rem;
     padding: .5rem;
-    background-color: rgb(130, 233, 130);
+}
+
+.book-remove-button {
+    background-color: rgb(233, 222, 222);
+    margin: 0rem 4rem 1rem 4rem;
+    border-radius: 2rem;
+    padding: .5rem;
+    color: black;
 }
