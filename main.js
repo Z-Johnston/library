@@ -2,7 +2,7 @@ const submitButton = document.querySelector('.submit-button');
 const bookInput = document.querySelectorAll('input');
 const library = document.querySelector('.library');
 
-//Book object constructor
+//Book object class
 class Book {
     constructor(title, author, pages, read) {
     this.title = title;
