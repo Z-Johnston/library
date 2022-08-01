@@ -3,20 +3,21 @@ const bookInput = document.querySelectorAll('input');
 const library = document.querySelector('.library');
 
 //Book object constructor
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    }
+
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${!this.read ? 'not read yet' : 'has been read'}`;
+    }
 }
 
 //library for book objects to be added to
 let libraryArray = [];
-
-//Info function to return full Book info 
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${!this.read ? 'not read yet' : 'has been read'}`;
-}
 
 // Add book function to create a new Book object from the submitted
 // form data and add that Book to the library array
